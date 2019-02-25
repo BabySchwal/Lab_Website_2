@@ -155,9 +155,44 @@ function loadStatsPage()
 					  avg_rec_yards - the average number of receiving yards for the player's Buff career
 */
 
-/*function loadPlayersPage()
+function loadPlayersPage()
 {
-	for (P 
-	var x = document.createElement();
-}*/				
+	var row_counter;
+	var ps = document.getElementById('player_selector');
+	var anchor = '';
+	var text;
+	for (row_counter = 0; row_counter < players.length; row_counter++)
+	{
+		text = players[row_counter].name;		
+		anchor += '<a class="dropdown-item" href="#" onclick="switchPlayers('+row_counter+')">'+text+'</a>'
+	}
+	ps.innerHTML = anchor;
+}
+
+function switchPlayers(playerNum)
+{
+	var avg_p_yards;
+	var avg_r_yards;
+	var avg_rec_yards;
+	var img = document.getElementById('player_img');
+	img.src = players[playerNum].img;
+	var span = document.getElementById('p_year');
+	span.innerHTML = players[playerNum].year;
+	var span = document.getElementById('p_major');
+	span.innerHTML = players[playerNum].major;
+	var span = document.getElementById('g_played');
+	span.innerHTML = players[playerNum].games_played;
+	var span = document.getElementById('p_yards');
+	span.innerHTML = players[playerNum].pass_yards;
+	var span = document.getElementById('r_yards');
+	span.innerHTML = players[playerNum].rushing_yards;
+	var span = document.getElementById('rec_yards');
+	span.innerHTML = players[playerNum].receiving_yards;
+	var span = document.getElementById('avg_p_yards');
+	span.innerHTML = players[playerNum].pass_yards / players[playerNum].games_played;
+	var span = document.getElementById('avg_r_yards');
+	span.innerHTML = players[playerNum].rushing_yards / players[playerNum].games_played;
+	var span = document.getElementById('avg_rec_yards');
+	span.innerHTML = players[playerNum].receiving_yards / players[playerNum].games_played;
+}				
 
